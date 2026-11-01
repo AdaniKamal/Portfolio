@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Adani Kamal | Cybersecurity Portfolio</title><meta name="description" content="Senior Specialist in cybersecurity. Vulnerability management, penetration testing, cloud security, teaching and mentoring."><link rel="icon" href="./favicon.svg"><link rel="stylesheet" href="./styles.css"><style>
 .portfolio-intro{position:fixed;inset:0;z-index:10000;display:grid;place-items:center;padding:24px;background-color:#080909;background-image:linear-gradient(#ffffff08 1px,transparent 1px),linear-gradient(90deg,#ffffff08 1px,transparent 1px),radial-gradient(ellipse at 50% 48%,#151a0c 0%,#080909 66%);background-size:48px 48px,48px 48px,auto;color:#eee9df;opacity:1;visibility:visible;transition:opacity .38s ease,visibility .38s ease}
-.portfolio-intro-seen .portfolio-intro{display:none}
 .portfolio-intro.is-closing{opacity:0;visibility:hidden;pointer-events:none}
 .portfolio-intro__panel{width:min(680px,100%);border:1px solid #34392b;background:#080909ed;padding:clamp(22px,5vw,48px);box-shadow:0 24px 90px #0009}
 .portfolio-intro__top,.portfolio-intro__bottom{display:flex;align-items:center;justify-content:space-between;gap:20px}
@@ -21,7 +20,7 @@
 .portfolio-intro__skip:focus-visible{outline:2px solid #c8ff31;outline-offset:4px}
 @media(max-width:520px){.portfolio-intro{padding:16px}.portfolio-intro__panel{padding:23px 19px}.portfolio-intro__output{font-size:11px}.portfolio-intro__meta{font-size:8px}}
 @media(prefers-reduced-motion:reduce){.portfolio-intro,.portfolio-intro__track span{transition:none!important}}
-</style><script>try{if(sessionStorage.getItem("ak-portfolio-intro-seen")==="1")document.documentElement.classList.add("portfolio-intro-seen")}catch(e){}</script></head><body><div class="portfolio-intro" id="portfolio-intro" role="dialog" aria-modal="true" aria-labelledby="portfolio-intro-title">
+</style></head><body><div class="portfolio-intro" id="portfolio-intro" role="dialog" aria-modal="true" aria-labelledby="portfolio-intro-title">
   <div class="portfolio-intro__panel">
     <div class="portfolio-intro__top">
       <p class="portfolio-intro__label" id="portfolio-intro-title"><strong>AK.</strong> / Portfolio</p>
@@ -56,7 +55,6 @@
     {value:70,text:"Projects, teaching and research loaded"},
     {value:100,text:"Portfolio ready"}
   ];
-  if(document.documentElement.classList.contains("portfolio-intro-seen")) return;
   let closed=false;
   let timers=[];
   document.body.classList.add("portfolio-intro-active");
@@ -66,7 +64,6 @@
     if(closed)return;
     closed=true;
     timers.forEach(clearTimeout);
-    try{sessionStorage.setItem("ak-portfolio-intro-seen","1")}catch(e){}
     main.inert=false;
     document.body.classList.remove("portfolio-intro-active");
     intro.classList.add("is-closing");
